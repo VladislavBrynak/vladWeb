@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Послуги ремонту</title>
+    <style>
+        /* Сброс стилей */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(120deg, #f4f4f9, #cfe2f3); /* Двухцветный фон */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(45deg, #4CAF50, #2E7D32);
+            color: white;
+            text-align: center;
+            padding: 40px 10px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .language-switcher button {
+            padding: 8px 12px;
+            border: none;
+            background-color: white;
+            color: #4CAF50;
+            font-weight: bold;
+            border-radius: 5px; /* Закруглённые углы */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .language-switcher button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: calc(50% - 10px);
+            max-width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (min-width: 600px) {
+            .gallery img {
+                width: calc(33.33% - 10px);
+            }
+        }
+
+        .description {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .description h2 {
+            color: #333;
+        }
+
+        .description p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .contact {
+            background: linear-gradient(45deg, #333, #555);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .contact h3 {
+            margin-bottom: 10px;
+        }
+
+        .contact a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: linear-gradient(45deg, #222, #444);
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="language-switcher">
+            <button onclick="setLanguage('uk')">Українська</button>
+            <button onclick="setLanguage('cs')">Čeština</button>
+        </div>
+        <h1 id="title">Послуги ремонту</h1>
+        <p id="subtitle">Якісно. Швидко. Надійно.</p>
+    </header>
+
+    <div class="container">
+        <!-- Галерея -->
+        <div class="gallery">
+            <img src="__img__/photo1.jpg" alt="Foto 1">
+            <img src="__img__/photo2.jpg" alt="Foto 2">
+            <img src="__img__/photo3.jpg" alt="Foto 3">
+            <img src="__imd__/photo4.jpg" alt="Foto 4">
+        </div>
+
+        <!-- Описание услуг -->
+        <div class="description">
+            <h2 id="services-title">Наші послуги</h2>
+            <p id="services-desc-1">Ми виконуємо всі види ремонтних робіт: від дрібного ремонту до капітального. Гарантія на всі виконані роботи.</p>
+            <p id="services-desc-2">Професійний підхід і індивідуальні рішення для кожного клієнта.</p>
+        </div>
+    </div>
+
+    <!-- Контакты -->
+    <div class="contact">
+        <h3 id="contact-title">Зв'яжіться з нами</h3>
+        <p id="phone">Телефон: <a href="tel:+420123456789">+420 123 456 789</a></p>
+        <p id="email">Email: <a href="mailto:remont@example.com">remont@example.com</a></p>
+        <p id="whatsapp">WhatsApp: <a href="https://wa.me/420123456789" target="_blank">Написати в WhatsApp</a></p>
+    </div>
+
+    <footer>
+        &copy; 2025 Ремонтні послуги. Всі права захищені.
+    </footer>
+
+    <script>
+        // Тексты для двух языков
+        const translations = {
+            uk: {
+                title: "Послуги ремонту",
+                subtitle: "Якісно. Швидко. Надійно.",
+                servicesTitle: "Наші послуги",
+                servicesDesc1: "Ми виконуємо всі види ремонтних робіт: від дрібного ремонту до капітального. Гарантія на всі виконані роботи.",
+                servicesDesc2: "Професійний підхід і індивідуальні рішення для кожного клієнта.",
+                contactTitle: "Зв'яжіться з нами",
+                phone: "Телефон: ",
+                email: "Email: ",
+                whatsapp: "WhatsApp: "
+            },
+            cs: {
+                title: "Opravárenské služby",
+                subtitle: "Kvalitně. Rychle. Spolehlivě.",
+                servicesTitle: "Naše služby",
+                servicesDesc1: "Provádíme všechny druhy oprav: od drobných oprav po kompletní rekonstrukci. Záruka na všechny provedené práce.",
+                servicesDesc2: "Profesionální přístup a individuální řešení pro každého klienta.",
+                contactTitle: "Kontaktujte nás",
+                phone: "Telefon: ",
+                email: "Email: ",
+                whatsapp: "WhatsApp: "
+            }
+        };
+
+        // Функция переключения языка
+        function setLanguage(lang) {
+            document.getElementById("title").textContent = translations[lang].title;
+            document.getElementById("subtitle").textContent = translations[lang].subtitle;
+            document.getElementById("services-title").textContent = translations[lang].servicesTitle;
+            document.getElementById("services-desc-1").textContent = translations[lang].servicesDesc1;
+            document.getElementById("services-desc-2").textContent = translations[lang].servicesDesc2;
+            document.getElementById("contact-title").textContent = translations[lang].contactTitle;
+            document.getElementById("phone").innerHTML = translations[lang].phone + '<a href="tel:+420123456789">+420 123 456 789</a>';
+            document.getElementById("email").innerHTML = translations[lang].email + '<a href="mailto:remont@example.com">remont@example.com</a>';
+            document.getElementById("whatsapp").innerHTML = translations[lang].whatsapp + '<a href="https://wa.me/420123456789" target="_blank">Написати в WhatsApp</a>';
+        }
+    </script>
+</body>
+</html>
